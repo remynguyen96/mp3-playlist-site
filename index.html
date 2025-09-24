@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MP3 Playlist</title>
+  <link rel="icon" href="assets/images/favicon.svg">
+  <link rel="preload" href="playlists/default.json" as="fetch" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="site-title">Sample News And MP3 Playlist</h1>
+      <nav class="site-nav">
+        <button id="themeToggle" title="Toggle theme" aria-label="Toggle theme">🌓</button>
+      </nav>
+    </div>
+  </header>
+
+  <div class="footer__top">
+    <div class="container">
+      <div class="footer__nav">
+        <ul class="menu-nav">
+          <li>
+            <a href="/" title="Trang chủ" class="nav-link">Trang chủ
+            </a>
+          </li>
+          <li>
+
+            <a title="Video" href="/video.htm" class="nav-link">Video</a>
+
+          </li>
+          <li>
+            <a href="/thoi-su.htm" title="THỜI SỰ" class="nav-link ">Thời sự
+            </a>
+          </li>
+          <li>
+            <a href="/the-gioi.htm" title="THẾ GIỚI" class="nav-link ">Thế giới
+            </a>
+          </li>
+          <li>
+            <a href="/phap-luat.htm" title="PHÁP LUẬT" class="nav-link ">Pháp luật
+            </a>
+          </li>
+          <li>
+            <a href="/kinh-doanh.htm" title="KINH DOANH" class="nav-link ">Kinh doanh
+            </a>
+          </li>
+          <li>
+            <a href="/cong-nghe.htm" title="CÔNG NGHỆ" class="nav-link ">Công nghệ
+            </a>
+          </li>
+          <li>
+            <a href="/xe.htm" title="XE" class="nav-link ">Xe
+            </a>
+          </li>
+          <li>
+            <a href="/du-lich.htm" title="DU LỊCH" class="nav-link ">Du lịch
+            </a>
+          </li>
+          <li>
+            <a href="/nhip-song-tre.htm" title="NHỊP SỐNG TRẺ" class="nav-link ">Nhịp sống trẻ
+            </a>
+          </li>
+          <li>
+            <a href="/van-hoa.htm" title="VĂN HÓA" class="nav-link ">Văn hóa
+            </a>
+          </li>
+          <li>
+            <a href="/giai-tri.htm" title="GIẢI TRÍ" class="nav-link ">Giải trí
+            </a>
+          </li>
+          <li>
+            <a href="/the-thao.htm" title="THỂ THAO" class="nav-link ">Thể thao
+            </a>
+          </li>
+          <li>
+            <a href="/giao-duc.htm" title="GIÁO DỤC" class="nav-link ">Giáo dục
+            </a>
+          </li>
+          <li>
+            <a href="/khoa-hoc.htm" title="KHOA HỌC" class="nav-link ">Khoa học
+            </a>
+          </li>
+          <li>
+            <a href="/suc-khoe.htm" title="Sức khỏe" class="nav-link ">Sức khỏe
+            </a>
+          </li>
+          <li>
+            <a href="/gia-that.htm" title="Giả thật" class="nav-link ">Giả thật
+            </a>
+          </li>
+          <li>
+            <a href="/ban-doc.htm" title="Bạn đọc" class="nav-link ">Bạn đọc
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <main class="container home">
+    <section class="news" aria-label="News">
+      <h2 class="news-title">Latest News</h2>
+      <ul id="newsList" class="news-list" role="list"></ul>
+    </section>
+  </main>
+
+  <div class="dock" role="region" aria-label="Audio dock">
+    <div class="container dock-grid">
+      <aside class="sidebar" aria-label="Playlist">
+        <div class="playlist-header">
+          <h2>Tracks</h2>
+          <input id="searchInput" class="search" type="search" placeholder="Search tracks..."
+            aria-label="Search tracks">
+        </div>
+        <ul id="trackList" class="track-list" role="list"></ul>
+      </aside>
+
+      <section class="player" aria-label="Player">
+        <div class="now-playing">
+          <img id="coverImage" class="cover" src="assets/images/placeholder-cover.svg" alt="Cover"
+            onerror="this.src='assets/images/placeholder-cover.svg'">
+          <div class="meta">
+            <h3 id="trackTitle" class="title">—</h3>
+            <p id="trackArtist" class="artist">—</p>
+          </div>
+        </div>
+
+        <div class="controls" role="group" aria-label="Player controls">
+          <button id="prevBtn" class="btn" aria-label="Previous">⏮</button>
+          <button id="playPauseBtn" class="btn primary" aria-label="Play/Pause">▶️</button>
+          <button id="nextBtn" class="btn" aria-label="Next">⏭</button>
+          <button id="shuffleBtn" class="btn" aria-label="Shuffle">🔀</button>
+          <button id="repeatBtn" class="btn" aria-label="Repeat">🔁</button>
+        </div>
+
+        <div class="progress">
+          <span id="currentTime" class="time">0:00</span>
+          <input id="seekBar" type="range" min="0" max="100" value="0" step="0.1" aria-label="Seek">
+          <span id="duration" class="time">0:00</span>
+        </div>
+
+        <div class="volume">
+          <label for="volumeBar">🔊</label>
+          <input id="volumeBar" type="range" min="0" max="1" value="1" step="0.01" aria-label="Volume">
+        </div>
+
+        <audio id="audio" preload="metadata" autoplay="true" playsinline crossorigin="anonymous"></audio>
+      </section>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© 2025 • MP3 Playlist</small>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+
+</html>

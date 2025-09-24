@@ -1,0 +1,25 @@
+{
+  "name": "Default Playlist",
+  "tracks": [
+    {
+      "title": "K",
+      "artist": "Cigarettes After Sex",
+      "src": "assets/audio/K.mp3",
+      "cover": "assets/images/thumbnail.jpg"
+    },
+    {
+      "title": "Apocalypse",
+      "artist": "Cigarettes After Sex",
+      "src": "assets/audio/Apocalypse.mp3",
+      "cover": "assets/images/thumbnail.jpg"
+    },
+    {
+      "title": "Sweet",
+      "artist": "Cigarettes After Sex",
+      "src": "assets/audio/Sweet.mp3",
+      "cover": "assets/images/thumbnail.jpg"
+    }
+  ]
+}
+
+
